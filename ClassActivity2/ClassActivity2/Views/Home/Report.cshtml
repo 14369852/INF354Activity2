@@ -1,0 +1,23 @@
+﻿@model ClassActivity2.ViewModel.Report
+@using ClassActivity2.ViewModel
+@using System.Globalization
+@using System.Data
+@{
+    ViewBag.Title = "Advanced reports";
+}
+
+<h1>Advanced Report</h1>
+
+<div>
+    @using (Html.BeginForm("Report", "Home", FormMethod.Post))
+    {
+        <label>Select Vendor</label>
+        @Html.DropDownListFor(m => m.SelectedProdID, Model.Invoice, "-- Please select --", new { @class = "form-control" })
+        <label>From</label>
+        @Html.TextBoxFor(m => m.DFrom, "yyyy-MM-dd", new { @Value = "2013-08-01", @type = "date", @class = "form-control" })
+        <label>To</label>
+        @Html.TextBoxFor(m => m.DTo, "yyyy-MM-dd", new { @Value = "2013-08-30", @type = "date", @class = "form-control" })
+        <br />
+        <input type="submit" value="Generate" class="btn btn-primary" />
+    }
+</div>
